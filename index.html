@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Conference</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen p-4">
+    <div class="max-w-6xl mx-auto">
+        <div id="joinForm" class="max-w-md mx-auto bg-white rounded-lg shadow-lg p-6 mb-4">
+            <input type="text" id="roomId" placeholder="Enter Room ID" 
+                   class="w-full p-2 border rounded mb-4">
+            <button id="joinBtn" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                Join Room
+            </button>
+        </div>
+        
+        <div id="roomUI" class="hidden">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-semibold">Room: <span id="roomDisplay"></span></h3>
+                <div class="flex gap-2">
+                    <button id="muteAudioBtn" class="bg-gray-500 text-white p-2 rounded hover:bg-gray-600">🎤</button>
+                    <button id="muteVideoBtn" class="bg-gray-500 text-white p-2 rounded hover:bg-gray-600">📹</button>
+                    <button id="leaveBtn" class="bg-red-500 text-white p-2 rounded hover:bg-red-600">Leave</button>
+                </div>
+            </div>
+            <div id="videos" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div id="localVideoContainer" class="relative">
+                    <video id="localVideo" autoplay muted playsinline 
+                           class="w-full bg-black rounded"></video>
+                    <span class="absolute bottom-2 left-2 text-white bg-black bg-opacity-50 px-2 rounded">
+                        You
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="webrtc.js"></script>
+</body>
+</html>
